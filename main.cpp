@@ -120,18 +120,18 @@ Eigen::Vector3d multilaterate(const Eigen::Vector3d *a, const double *r,
 
 int main() {
   //TODO input vectors from command line input or from file
-  Vector3d anchor01(0.0, 0.0, 0.0);
-  Vector3d anchor02(2.0, 2.0, 0.0);
-  Vector3d anchor03(2.0, 0.0, 2.0);
-  Vector3d anchor04(0.0, 2.0, 2.0);
+  Vector3d device01(0.0, 0.0, 0.0);
+  Vector3d device02(2.0, 2.0, 0.0);
+  Vector3d device03(2.0, 0.0, 2.0);
+  Vector3d device04(0.0, 2.0, 2.0);
 
-  const Vector3d a[4]{anchor01, anchor02, anchor03, anchor04};
-  const double r[4] = {1.73, 1.73, 1.73, 1.73};
+  const Vector3d a[4]{device01, device02, device03, device04};
+  const double distances[4] = {1.73, 1.73, 1.73, 1.73};
 
-  const size_t count = 4;
+  const size_t device_count = 4;
 
-  Vector3d guess(3);
-  guess << 0.0, 0.0, 0.0;
+  Vector3d initial_guess(3);
+  initial_guess << 0.0, 0.0, 0.0;
 
-  multilaterate(a, r, count, guess);
+  multilaterate(a, distances, device_count, initial_guess);
 }
